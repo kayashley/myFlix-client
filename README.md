@@ -5,13 +5,13 @@ Tools used:
 
 How to setup the application: 
 
-npm install parcel -g
+- npm install parcel -g
 
-npm install
+- npm install
 
 How to run the server:
 
-parcel src/index.html
+- parcel src/index.html
 
 
 Notes: 
