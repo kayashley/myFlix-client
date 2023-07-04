@@ -5,14 +5,14 @@ export const LoginView = ({ onLoggedIn }) => {
     const [password, setPassword] = useState(""); 
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // prevents the default behavior of reloading the entire page
 
         const data = {
             access: username, 
             secret: password
         };
 
-        // fetch api
+        // fetches api
         fetch("https://myflix-kc.herokuapp.com/login", {
             method: "POST",
             headers: {
