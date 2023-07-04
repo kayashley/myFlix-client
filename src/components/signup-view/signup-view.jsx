@@ -7,8 +7,7 @@ export const SignupView = () => {
     const [birthday, setBirthday] = useState("");
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-
+        event.preventDefault(); // prevents the default behavior of reloading the entire page
         const data = {
             Username: username,
             Password: password,
@@ -16,6 +15,7 @@ export const SignupView = () => {
             Birthday: birthday
         };
 
+        // fetches api
         fetch("https://myflix-kc.herokuapp.com/signup", {
             method: "POST",
             body: JSON.stringify(data), // translates the response to JSON 
