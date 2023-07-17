@@ -12,7 +12,7 @@ useEffect(() => {
     if (!token) return;
     
     // fetch movie api
-    fetch("https://myflix-kc.herokuapp.com/movies", {
+    fetch("https://myflix-kc-3l19.onrender.com", {
         headers: { Authorization: `Bearer ${token}` }
     })
         .then((response) => response.json())
