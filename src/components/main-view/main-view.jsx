@@ -9,7 +9,12 @@ const [selectedMovie, setSelectedMovie] = useState(null);
 
 // fetch movie api
 useEffect(() => {
-    fetch("https://myflix-kc.herokuapp.com/movies")
+    if (!token) return;
+    
+    // fetch movie api
+    fetch("https://myflix-kc.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` }
+    })
         .then((response) => response.json())
         .then((data) => {
             // process the api response and update the movies state
