@@ -1,3 +1,5 @@
+import "bootstrap/dist/src/css/bootstrap.min.css";
+import Container from "react-bootstrap/Container";
 import { createRoot } from "react-dom/client";
 import { MainView } from "./components/main-view/main-view";
 
@@ -6,7 +8,11 @@ import "./index.scss";
 
 // Main component (will eventually use all the others)
 const MyFlixApplication = () => {
-  return <MainView />
+  return (
+    <Container>
+      <MainView />;
+    </Container>
+  );
 };
 
 // Finds the root of your app
