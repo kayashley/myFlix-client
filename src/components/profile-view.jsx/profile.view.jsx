@@ -17,10 +17,10 @@ export function ProfileView() {
     event.preventDefault();
 
     const data = {
-      username: username,
-      password: password,
+      Username: username,
+      Password: password,
       email: email,
-      birthday: birthday,
+      Birthday: birthday,
     };
   };
 
