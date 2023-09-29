@@ -16,7 +16,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
 
   const addFavoriteMovie = () => {
     fetch(
-      "https://myflix-kc-3l19.onrender.com/users/${user.username}/movies/${movies._id}",
+      "https://web-production-0aea6.up.railway.app/users/${user.username}/movies/${movies._id}",
       {
         method: "POST",
         headers: {
@@ -43,7 +43,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
 
   const removeFavoriteMovie = () => {
     fetch(
-      "https://myflix-kc-3l19.onrender.com/users/${user.username}/movies/${movies._id}",
+      "https://web-production-0aea6.up.railway.app/users/${user.username}/movies/${movies._id}",
       {
         method: "DELETE",
         headers: {
