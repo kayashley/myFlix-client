@@ -29,7 +29,7 @@ export const LoginView = () => {
           alert("No such user");
         }
       })
-      .catch((e) => {
+      .catch(() => {
         alert("Something went wrong");
       });
   };
