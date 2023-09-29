@@ -24,7 +24,7 @@ export function ProfileView() {
     };
   };
 
-  fetch("https://myflix-kc-3l19.onrender.com/users/${user.username}", {
+  fetch("https://web-production-0aea6.up.railway.app/users/${user.username}", {
     method: "PUT",
     body: JSON.stringify(data),
     headers: {
@@ -47,7 +47,7 @@ export function ProfileView() {
     });
 
   const handleDeleteUser = () => {
-    fetch("https://myflix-kc-3l19.onrender.com/users/${user.username}"),
+    fetch("https://web-production-0aea6.up.railway.app/users/${user.username}"),
       {
         method: "DELETE",
         body: JSON.stringify(data),
