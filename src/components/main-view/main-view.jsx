@@ -22,7 +22,7 @@ export const MainView = () => {
     if (!token) return;
 
     // fetch movie api
-    fetch("https://myflix-kc-3l19.onrender.com/movies", {
+    fetch("https://web-production-0aea6.up.railway.app/movies", {
       // allows for authenticated requests to your API
       headers: { Authorization: `Bearer ${token}` },
     })
