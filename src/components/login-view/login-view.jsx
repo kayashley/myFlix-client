@@ -11,20 +11,23 @@ export const LoginView = () => {
     event.preventDefault();
 
     // const data = { access: username, secret: password };
-    const data = { username: username, password: password };
+    const loginData = { username: username, password: password };
 
     fetch("https://web-production-0aea6.up.railway.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(loginData),
     })
       // transforms the response content into a JSON object that your code can use to extract the JWT sent by the myFLix API
       .then((response) => response.json())
       .then((data) => {
         console.log("Login response: ", data);
-        if (data.user) {
-          // passes the user and token back to MainView so they can e used in other requests
-          onLoggedIn(data.user, data.token);
+        // localStorage, allows data storage - temp in memory while the app is running & cleared once the tab is closed or reloaded
+        // storing user and token in localStorage
+        if (data && data.user) {
+          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("token", data.token);
+          onLoggedin(data.user, data.token);
         } else {
           alert("No such user");
         }
@@ -33,16 +36,6 @@ export const LoginView = () => {
         alert("Something went wrong");
       });
   };
-
-  // localStorage, allows data storage - temp in memory while the app is running & cleared once the tab is closed or reloaded
-  // storing user and token in localStorage
-  if (data.user) {
-    localStorage.setItem("user", JSON.stringify(data.user));
-    localStorage.setItem("token", data.token);
-    onLoggedin(data.user, data.token);
-  } else {
-    alert("No such user");
-  }
 
   return (
     <Form onSubmit={handleSubmit}>
