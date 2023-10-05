@@ -13,7 +13,7 @@ export const LoginView = () => {
     // const data = { access: username, secret: password };
     const data = { username: username, password: password };
 
-    fetch("https://web-production-0aea6.up.railway.app//login", {
+    fetch("https://web-production-0aea6.up.railway.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
