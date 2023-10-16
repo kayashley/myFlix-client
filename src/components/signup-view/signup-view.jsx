@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "./signup-view.scss";
 
 export const SignupView = () => {
   const [username, setUsername] = useState("");
@@ -10,32 +11,32 @@ export const SignupView = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
 
-  const data = {
-    Username: username,
-    Password: password,
-    Email: email,
-    Birthday: birthday,
-  };
+    const data = {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    };
 
-  fetch("SIGNUP_URL", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-type": "application/json" },
-  }).then((response) => {
-    if (response.ok) {
-      alert("Signup successful");
-      window.location.reload();
-    } else {
-      alert("Signup failed");
-    }
-  });
+    fetch("https://web-production-0aea6.up.railway.app/users", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    }).then((response) => {
+      if (response.ok) {
+        alert("Signup successful");
+        window.location.reload();
+      } else {
+        alert("Signup failed");
+      }
+    });
+  };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group contentId="formUsername">
-        <Form.Label>Username</Form.Label>
+    <Form onSubmit={handleSubmit} className="sign">
+      <Form.Group>
+        <Form.Label>Username </Form.Label>
         <Form.Control
           type="username"
           value={username}
@@ -44,8 +45,8 @@ export const SignupView = () => {
           minLength={3}
         />
       </Form.Group>
-      <Form.Group contentId="formPassword">
-        <Form.Label>Password</Form.Label>
+      <Form.Group className="form-group">
+        <Form.Label>Password </Form.Label>
         <Form.Control
           type="password"
           value={password}
@@ -53,8 +54,8 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
-      <Form.Group contentId="formEmail">
-        <Form.Label>Email</Form.Label>
+      <Form.Group className="form-group">
+        <Form.Label>Email </Form.Label>
         <Form.Control
           type="email"
           value={email}
@@ -62,7 +63,7 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="form-group submit">
         <Form.Label>Birthday </Form.Label>
         <Form.Control
           type="date"

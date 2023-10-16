@@ -93,15 +93,6 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         </Card.Footer>
       </Card.Body>
     </Card>
-
-    // without React Router Link
-    /* <Button
-        onClick={() => {
-          onMovieClick(movie);
-        }}
-      >
-        Open
-      </Button> */
   );
 };
 
@@ -116,16 +107,3 @@ MovieCard.propTypes = {
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired,
 };
-
-// without card component implemented
-// export const MovieCard = ({ movie, onMovieClick }) => {
-//     return (
-//         <div
-//             onClick={() => {
-//                 onMovieClick(movie);
-//         }}
-//         >
-//             {movie.title}
-//         </div>
-//     );
-// };

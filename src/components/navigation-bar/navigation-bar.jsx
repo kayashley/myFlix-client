@@ -1,22 +1,23 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./navigation-bar.scss";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
   return (
     <Navbar>
-      <Container>
+      <Container className="nav a">
         <Navbar.Brand as={Link} to="/">
-          MyFlix App
+          <h1>MyFlix App</h1>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="left options">
             {!user && (
               <>
                 <Nav.Link as={Link} to="/login">
                   Login
                 </Nav.Link>
-                <Nav.Link as={Link} to="/signup">
+                <Nav.Link as={Link} to="/signup" className="signup">
                   Signup
                 </Nav.Link>
               </>
