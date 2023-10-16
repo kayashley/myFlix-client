@@ -1,5 +1,87 @@
+@import "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap";
 .my-flix {
-  color: #4682b4;
+  color: #faa18e;
+}
+
+body {
+  background-color: #faa18e;
+  font-family: Roboto;
+}
+
+.login {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 7px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 16px;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.form {
+  padding: 10px;
+}
+
+.sign {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 7px;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px;
+  font-size: 16px;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.form-group {
+  padding-top: 10px;
+}
+
+.submit {
+  padding-bottom: 10px;
+}
+
+.nav {
+  background-color: #fff;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  margin: 0 auto 20px;
+  padding-left: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  box-shadow: 3px 3px 3px gray;
+}
+
+h1 {
+  color: #000;
+  font-size: 20px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:active {
+  color: orange;
+}
+
+.options {
+  color: #000;
+  margin-left: 740px;
+  font-size: 20px;
+}
+
+.signup {
+  margin-right: 5px;
+  padding-left: 10px;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

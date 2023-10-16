@@ -1,64 +1,56 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "./login-view.scss";
 
-export const LoginView = () => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
+export const LoginView = ({ onLoggedin }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
     // Prevents the default behavior or the form which is to reload the entire page
     event.preventDefault();
 
     // const data = { access: username, secret: password };
-    const data = { username: username, password: password };
+    const loginData = { Username: username, Password: password };
 
     fetch("https://web-production-0aea6.up.railway.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(loginData),
     })
       // transforms the response content into a JSON object that your code can use to extract the JWT sent by the myFLix API
       .then((response) => response.json())
-      .then((data) => {
-        console.log("Login response: ", data);
-        if (data.user) {
-          // passes the user and token back to MainView so they can e used in other requests
-          onLoggedIn(data.user, data.token);
+      .then((loginData) => {
+        console.log("Login response: ", loginData);
+        // localStorage, allows data storage - temp in memory while the app is running & cleared once the tab is closed or reloaded
+        // storing user and token in localStorage
+        if (loginData.user) {
+          localStorage.setItem("user", JSON.stringify(loginData.user));
+          localStorage.setItem("token", loginData.token);
+          onLoggedin(loginData.user, loginData.token);
         } else {
           alert("No such user");
         }
       })
-      .catch(() => {
+      .catch((e) => {
         alert("Something went wrong");
       });
   };
 
-  // localStorage, allows data storage - temp in memory while the app is running & cleared once the tab is closed or reloaded
-  // storing user and token in localStorage
-  if (data.user) {
-    localStorage.setItem("user", JSON.stringify(data.user));
-    localStorage.setItem("token", data.token);
-    onLoggedin(data.user, data.token);
-  } else {
-    alert("No such user");
-  }
-
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="login">
       <Form.Group controlId="formUsername">
-        <Form.Label>
-          Username:
-          <Form.Control
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </Form.Label>
+        <Form.Label>Username </Form.Label>
+        <Form.Control
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
       </Form.Group>
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
+      <Form.Group controlId="formPassword" className="form">
+        <Form.Label>Password </Form.Label>
         <Form.Control
           type="password"
           value={password}
