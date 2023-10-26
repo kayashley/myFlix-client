@@ -19,3 +19,17 @@
 //         </div>
 //     );
 // };
+
+/* <Card.Body>
+        <Card.Footer className="text-center">
+          {!isFavorite ? (
+            <Button variant="primary" onClick={addFavoriteMovie}>
+              Add to favorites list
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={removeFavoriteMovie}>
+              Remove from favorites list
+            </Button>
+          )}
+        </Card.Footer>
+      </Card.Body> */

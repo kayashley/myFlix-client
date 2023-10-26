@@ -1,97 +1,19 @@
 import PropTypes from "prop-types"; // copy "prop-types": "^15.8.1" into package dependencies
-import { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./movie-card.scss";
 
 // card component implemented
-export const MovieCard = ({ movie, onMovieClick }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    console.log(user);
-    if (user.favoriteMovies && user.favoriteMovies.includes(movie._id)) {
-      setIsFavorite(true);
-    }
-  }, []);
-
-  const addFavoriteMovie = () => {
-    fetch(
-      "https://web-production-0aea6.up.railway.app/users/${user.username}/movies/${movies._id}",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          alert("Failed");
-          return false;
-        }
-      })
-      .then((user) => {
-        if (user) {
-          alert("Successfully added to favorites");
-          setIsFavorite(true);
-        }
-      });
-  };
-
-  const removeFavoriteMovie = () => {
-    fetch(
-      "https://web-production-0aea6.up.railway.app/users/${user.username}/movies/${movies._id}",
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          alert("Failed");
-          return false;
-        }
-      })
-      .then((user) => {
-        if (user) {
-          alert("Successfully removed from favorites");
-          setIsFavorite(false);
-        }
-      });
-  };
-
+export const MovieCard = ({ movie, user }) => {
   return (
-    <Card className="h-100">
-      <Card.Img variant="top" src={movie.ImagePath} />
-      <Card.Body>
-        <Card.Title>{movie.Title}</Card.Title>
-        <Card.Text>{movie.Description}</Card.Text>
-        <Link to={`/movies/${encodedURIComponent(movie.id)}`}>
-          <Button variant="link">Open</Button>
-        </Link>
-      </Card.Body>
-
-      <Card.Body>
-        <Card.Footer className="text-center">
-          {!isFavorite ? (
-            <Button variant="primary" onClick={addFavoriteMovie}>
-              Add to favorites list
-            </Button>
-          ) : (
-            <Button variant="primary" onClick={removeFavoriteMovie}>
-              Remove from favorites list
-            </Button>
-          )}
-        </Card.Footer>
-      </Card.Body>
+    // movie card display
+    <Card className="h-100 card-btn card">
+      <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+        <Card.Img variant="" src={movie.ImagePath} />
+        <Card.Body className="title">
+          <h5>{movie.Title}</h5>
+        </Card.Body>
+      </Link>
     </Card>
   );
 };
@@ -101,9 +23,9 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,
-    Director: PropTypes.string.isRequired,
+    Director: PropTypes.object.isRequired,
     Description: PropTypes.string.isRequired,
     Year: PropTypes.string,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
 };
