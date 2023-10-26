@@ -1,0 +1,26 @@
+$primary: lightsteelblue;
+$secondary: steelblue;
+
+.card {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: $secondary;
+}
+
+.card-btn {
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3),
+    0 2px 20px 0 rgba(140, 142, 238, 0.3);
+  font-size: 15;
+}
+
+.card-btn:hover {
+  box-shadow: 0 10px 18px 0 rgba(129, 131, 233, 0.3),
+    0 17px 50px 0 rgba(140, 142, 238, 0.3);
+}

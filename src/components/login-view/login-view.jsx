@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./login-view.scss";
 
-export const LoginView = ({ onLoggedin }) => {
+export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,18 +28,19 @@ export const LoginView = ({ onLoggedin }) => {
         if (loginData.user) {
           localStorage.setItem("user", JSON.stringify(loginData.user));
           localStorage.setItem("token", loginData.token);
-          onLoggedin(loginData.user, loginData.token);
+          onLoggedIn(loginData.user, loginData.token);
         } else {
-          alert("No such user");
+          alert("User doesn't exist");
         }
       })
       .catch((e) => {
+        console.log("error", e);
         alert("Something went wrong");
       });
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="login">
+    <Form onSubmit={handleSubmit} className="form">
       <Form.Group controlId="formUsername">
         <Form.Label>Username </Form.Label>
         <Form.Control
@@ -49,7 +50,7 @@ export const LoginView = ({ onLoggedin }) => {
           required
         />
       </Form.Group>
-      <Form.Group controlId="formPassword" className="form">
+      <Form.Group controlId="formPassword">
         <Form.Label>Password </Form.Label>
         <Form.Control
           type="password"
@@ -58,7 +59,7 @@ export const LoginView = ({ onLoggedin }) => {
           required
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className="submit">
         Submit
       </Button>
     </Form>

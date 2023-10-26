@@ -1,78 +1,89 @@
 import { useState } from "react";
-import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 import { Button, Form, Row, Col } from "react-bootstrap";
+import "./profile-view.scss";
 
-export function ProfileView() {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [birthday, setBirthday] = useState(null);
+export function ProfileView({ movies, user, token, setUser }) {
+  const [username, setUsername] = useState(user.Username);
+  const [password, setPassword] = useState(user.Password);
+  const [email, setEmail] = useState(user.Email);
+  const [birthday, setBirthday] = useState(user.Birthday);
 
   // regular array of movie objects
-  let favoriteMovies = movies.filter((m) =>
-    user.FavoriteMovies.includes(m._id_)
-  );
+  let favoriteMovies = movies.filter((m) => {
+    return user.FavoriteMovies.includes(m._id);
+  });
+
+  // console.log("Favorite movie", favoriteMovies);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = {
       Username: username,
-      Password: password,
-      email: email,
+      Email: email,
       Birthday: birthday,
     };
-  };
 
-  fetch("https://web-production-0aea6.up.railway.app/users/${user.username}", {
-    method: "PUT",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response.jason();
-      } else {
-        alert("Update failed.");
-      }
-    })
-    .then((data) => {
-      if (data) {
-        localStorage.setItem("user", JSON.stringify(data));
-        setUsername(data);
-      }
-    });
+    if (password) {
+      data["Password"] = password;
+    }
 
-  const handleDeleteUser = () => {
-    fetch("https://web-production-0aea6.up.railway.app/users/${user.username}"),
+    fetch(
+      `https://web-production-0aea6.up.railway.app/users/${user.Username}`,
       {
-        method: "DELETE",
+        method: "PUT",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-      }.then((response) => {
+      }
+    )
+      .then((response) => {
         if (response.ok) {
-          setUser(null);
-          alert("Your account has been deleted");
+          alert("Successfully saved changes!");
+          return response.json();
         } else {
-          alert("Something went wrong");
+          alert("Update failed");
+        }
+      })
+      .then((data) => {
+        if (data) {
+          localStorage.setItem("user", JSON.stringify(data));
+          setUser(data);
         }
       });
   };
 
+  const handleDeleteUser = () => {
+    fetch(
+      `https://web-production-0aea6.up.railway.app/users/${user.Username}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    ).then((response) => {
+      if (response.ok) {
+        setUser(null);
+        alert("Your account has been deleted");
+      } else {
+        alert("Something went wrong");
+      }
+    });
+  };
+
   return (
     <>
-      <Row className="justify-content-center">
+      {/* form for user profile */}
+      <Row className="profile">
         <Col md={5}>
-          <h1 className="profile">My Profile</h1>
+          <h4>My Profile</h4>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername" className="form-group">
-              <Form.Label>Username:</Form.Label>
+              <Form.Label>Username: </Form.Label>
               <Form.Control
                 type="text"
                 value={username}
@@ -81,25 +92,25 @@ export function ProfileView() {
               />
             </Form.Group>
             <Form.Group controlId="formPassword" className="form-group">
-              <Form.Label>Password:</Form.Label>
+              <Form.Label>Password: </Form.Label>
               <Form.Control
-                type="text"
+                type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </Form.Group>
             <Form.Group controlId="formEmail" className="form-group">
-              <Form.Label>Email:</Form.Label>
+              <Form.Label>Email: </Form.Label>
               <Form.Control
-                type="text"
+                type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formBirthday" className="form-group">
-              <Form.Label>Birthday:</Form.Label>
+            <Form.Group controlId="formBirthday">
+              <Form.Label>Birthday: </Form.Label>
               <Form.Control
                 type="date"
                 value={birthday.slice(0, 10)}
@@ -110,83 +121,43 @@ export function ProfileView() {
           </Form>
         </Col>
       </Row>
-      <Row className="justify-content-center">
-        <h2>Favorite Movies</h2>
+
+      {/* save changes for user profile */}
+      <Row>
+        <Col className="btn">
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={handleSubmit}
+            className="save-btn"
+          >
+            Save Changes
+          </Button>
+
+          <Button
+            variant="warning"
+            onClick={handleDeleteUser}
+            className="delete-btn"
+          >
+            Delete Account
+          </Button>
+        </Col>
+      </Row>
+
+      {/* user favorites list */}
+      <Row className="fav">
+        <h4>Favorite Movies</h4>
         {favoriteMovies.map((movie) => (
-          <Col>
-            <MovieCard
-              movie={movie}
+          <Col className="mb-4" key={movie._id} xs={6} md={3}>
+            <MovieView
+              movies={movies}
               user={user}
               token={token}
-              setUser={(user) => updatedUsername(user)}
+              setUser={setUser}
             />
           </Col>
         ))}
       </Row>
-
-      <Button variant="primary" onClick={handleDeleteUser}>
-        Remove
-      </Button>
     </>
   );
 }
-
-//   return (
-//     <div>
-//       <p>User: {user.Username}</p>
-//       <p>Email: {user.Email}</p>
-//       <div>
-//         <h2>Favorite Movies</h2>
-//         {favoriteMovieList.map((movies) => {
-//           return (
-//             <div key={movies._id}>
-//               <img src={movies.ImagePath} />
-//               <Link to={`/movies/${movies._id}`}>
-//                 <h4>{movies.Title}</h4>
-//               </Link>
-//               <button variant="secondary" onClick={() => removeFav(movies._id)}>
-//                 Remove from list
-//               </button>
-//             </div>
-//           );
-//         })}
-//       </div>
-
-//       <form className="profile-view" onSubmit={(e) => handleSubmit(e)}>
-//         <h2>Want to change some info?</h2>
-//         <label>Username:</label>
-//         <input
-//           type="text"
-//           name="username"
-//           defaultValue={username}
-//           onChange={(e) => setUsername(e.target.value)}
-//         />
-//         <label>Password:</label>
-//         <input
-//           type="password"
-//           name="password"
-//           defaultValue={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-
-//         <label>Email Address</label>
-//         <input
-//           type="email"
-//           name="email"
-//           defaultValue={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//         />
-
-//         <label>Birthday</label>
-//         <input
-//           type="birthday"
-//           name="birthday"
-//           defaultValue={birthday}
-//           onChange={(e) => setBirthday(e.target.value)}
-//         />
-//         <button variant="primary" type="submit">
-//           Update
-//         </button>
-//       </form>
-//     </div>
-//   );
