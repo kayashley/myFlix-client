@@ -27539,7 +27539,7 @@ const MovieCard = ({ movie, user })=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
                     variant: "",
                     className: "",
-                    src: movie.ImagePath
+                    src: movie.imagepath
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 12,
@@ -27549,7 +27549,7 @@ const MovieCard = ({ movie, user })=>{
                     className: "title",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
                         className: "a",
-                        children: movie.Title
+                        children: movie.title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 14,
@@ -46943,7 +46943,7 @@ const MovieView = ({ movies, user, token, setUser })=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Img, {
-                                    src: movie.ImagePath
+                                    src: movie.imagepath
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 100,
@@ -46965,14 +46965,14 @@ const MovieView = ({ movies, user, token, setUser })=>{
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                                            children: movie.Title
+                                            children: movie.title
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
                                             lineNumber: 106,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                                            children: movie.Description
+                                            children: movie.description
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
                                             lineNumber: 107,
@@ -46986,7 +46986,7 @@ const MovieView = ({ movies, user, token, setUser })=>{
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                                            children: movie.Director.Name
+                                            children: movie.director.name
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
                                             lineNumber: 109,
@@ -47000,7 +47000,7 @@ const MovieView = ({ movies, user, token, setUser })=>{
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                                            children: movie.Genre.Name
+                                            children: movie.genre.name
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
                                             lineNumber: 111,
@@ -47615,7 +47615,7 @@ function ProfileView({ movies, user, token, setUser }) {
                                     className: "form-group",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                            children: "Username: "
+                                            children: "Username "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view.jsx/profile.view.jsx",
                                             lineNumber: 86,
@@ -47642,7 +47642,7 @@ function ProfileView({ movies, user, token, setUser }) {
                                     className: "form-group",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                            children: "Password: "
+                                            children: "Password "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view.jsx/profile.view.jsx",
                                             lineNumber: 95,
@@ -47669,7 +47669,7 @@ function ProfileView({ movies, user, token, setUser }) {
                                     className: "form-group",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                            children: "Email: "
+                                            children: "Email "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view.jsx/profile.view.jsx",
                                             lineNumber: 104,
@@ -47695,7 +47695,7 @@ function ProfileView({ movies, user, token, setUser }) {
                                     controlId: "formBirthday",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                            children: "Birthday: "
+                                            children: "Birthday "
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view.jsx/profile.view.jsx",
                                             lineNumber: 113,

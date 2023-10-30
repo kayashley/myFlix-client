@@ -97,18 +97,18 @@ export const MovieView = ({ movies, user, token, setUser }) => {
         <Row>
           <Col>
             <Card>
-              <Card.Img src={movie.ImagePath} />
+              <Card.Img src={movie.imagepath} />
             </Card>
           </Col>
           <Col>
             <Card className="w-100">
               <Card.Body>
-                <Card.Title>{movie.Title}</Card.Title>
-                <Card.Text>{movie.Description}</Card.Text>
+                <Card.Title>{movie.title}</Card.Title>
+                <Card.Text>{movie.description}</Card.Text>
                 <Card.Title>Director</Card.Title>
-                <Card.Text>{movie.Director.Name}</Card.Text>
+                <Card.Text>{movie.director.name}</Card.Text>
                 <Card.Title>Genre</Card.Title>
-                <Card.Text>{movie.Genre.Name}</Card.Text>
+                <Card.Text>{movie.genre.name}</Card.Text>
 
                 {/* favorites list buttons */}
                 {!isFavorite ? (

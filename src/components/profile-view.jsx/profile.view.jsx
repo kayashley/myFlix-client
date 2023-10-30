@@ -83,7 +83,7 @@ export function ProfileView({ movies, user, token, setUser }) {
           <h4>My Profile</h4>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername" className="form-group">
-              <Form.Label>Username: </Form.Label>
+              <Form.Label>Username </Form.Label>
               <Form.Control
                 type="text"
                 value={username}
@@ -92,7 +92,7 @@ export function ProfileView({ movies, user, token, setUser }) {
               />
             </Form.Group>
             <Form.Group controlId="formPassword" className="form-group">
-              <Form.Label>Password: </Form.Label>
+              <Form.Label>Password </Form.Label>
               <Form.Control
                 type="password"
                 value={password}
@@ -101,7 +101,7 @@ export function ProfileView({ movies, user, token, setUser }) {
               />
             </Form.Group>
             <Form.Group controlId="formEmail" className="form-group">
-              <Form.Label>Email: </Form.Label>
+              <Form.Label>Email </Form.Label>
               <Form.Control
                 type="email"
                 value={email}
@@ -110,7 +110,7 @@ export function ProfileView({ movies, user, token, setUser }) {
               />
             </Form.Group>
             <Form.Group controlId="formBirthday">
-              <Form.Label>Birthday: </Form.Label>
+              <Form.Label>Birthday </Form.Label>
               <Form.Control
                 type="date"
                 value={birthday.slice(0, 10)}
