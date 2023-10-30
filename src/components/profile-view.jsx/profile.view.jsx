@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MovieView } from "../movie-view/movie-view";
+import { MovieCard } from "../movie-card/movie-card";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./profile-view.scss";
 
@@ -144,13 +144,13 @@ export function ProfileView({ movies, user, token, setUser }) {
         </Col>
       </Row>
 
-      {/* user favorites list */}
+      {/* users favorite list */}
       <Row className="fav">
         <h4>Favorite Movies</h4>
         {favoriteMovies.map((movie) => (
           <Col className="mb-4" key={movie._id} xs={6} md={3}>
-            <MovieView
-              movies={movies}
+            <MovieCard
+              movie={movie}
               user={user}
               token={token}
               setUser={setUser}

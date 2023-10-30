@@ -19,7 +19,9 @@ export const MovieView = ({ movies, user, token, setUser }) => {
     }
   }, [user]);
 
-  // console.log("movie", movies);
+  console.log("movieId:", movieId);
+  console.log("movie:", movie);
+  console.log("movies:", movies);
   // console.log("Fav Movies", isFavorite);
   // console.log("user's favorite movie", user.FavoriteMovies);
 
@@ -85,7 +87,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
       });
   };
 
-  if (!movies) {
+  if (!movie) {
     return <p>Movie not found</p>;
   }
 
