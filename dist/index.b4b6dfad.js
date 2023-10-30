@@ -27548,6 +27548,7 @@ const MovieCard = ({ movie, user })=>{
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
                     className: "title",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                        className: "a",
                         children: movie.Title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
