@@ -9,21 +9,12 @@ export const MovieView = ({ movies, user, token, setUser }) => {
   const { movieId } = useParams();
   const movie = movies.find((m) => m._id === movieId);
 
-  console.log("movies", movies);
-  console.log("movie", movie);
-
   // useEffect() to log the value of isFavorite
   useEffect(() => {
     if (user.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
       setIsFavorite(true);
     }
   }, [user]);
-
-  console.log("movieId:", movieId);
-  console.log("movie:", movie);
-  console.log("movies:", movies);
-  // console.log("Fav Movies", isFavorite);
-  // console.log("user's favorite movie", user.FavoriteMovies);
 
   // function to add movies to favorites list
   const addFavoriteMovie = () => {

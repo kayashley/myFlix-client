@@ -14,8 +14,6 @@ export function ProfileView({ movies, user, token, setUser }) {
     return user.FavoriteMovies.includes(m._id);
   });
 
-  // console.log("Favorite movie", favoriteMovies);
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
