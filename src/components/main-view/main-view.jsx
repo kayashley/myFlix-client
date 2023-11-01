@@ -6,9 +6,11 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view.jsx/profile.view";
 import { FooterView } from "../footer-view/footer-view";
+import { SearchForm } from "../searchform-view/searchform-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { SearchForm } from "../searchform-view/searchform-view";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -16,6 +18,15 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser);
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState([]);
+
+  const handleFilter = (searchTerm) => {
+    const filterMovies = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    // updates movie state to filtered movie
+    setMovies(filterMovies);
+    console.log("filtered movies:", filterMovies);
+  };
 
   // fetch movie api
   useEffect(() => {
@@ -119,6 +130,12 @@ export const MainView = () => {
                   <Col>This list is empty!</Col>
                 ) : (
                   <>
+                    <Row>
+                      <Col>
+                        <SearchForm onSearch={handleFilter} />
+                      </Col>
+                    </Row>
+
                     {movies.map((movie) => (
                       <Col className="mb-4" key={movie._id} md={3} xs={6}>
                         <MovieCard movie={movie} user={user} />
