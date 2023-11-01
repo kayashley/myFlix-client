@@ -1,6 +1,5 @@
 # MyFlix App
 
-![image of my app](/img/myflix-app.jpg)
 
 ![myflix-app](https://github.com/kayashley/myFlix-client/assets/87038951/22c2daf7-af13-4c75-adb1-e010ff9e57eb)
 
