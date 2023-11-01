@@ -4,6 +4,10 @@ $secondary: steelblue;
   background-color: white;
 }
 
-.logo:hover {
+.nav a:hover {
+  color: $secondary;
+}
+
+.nav .logo {
   color: $secondary;
 }

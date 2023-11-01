@@ -5,13 +5,21 @@ $secondary: steelblue;
   margin-top: 20px;
 }
 
-a {
-  text-decoration: none;
+a,
+.card a {
+  text-decoration: none !important;
   color: black;
 }
 
-a:hover {
+a:hover,
+.card a:hover {
   color: $secondary;
+}
+
+.card .card-img {
+  object-fit: cover;
+  width: 100%;
+  height: 470px;
 }
 
 .card-btn {
