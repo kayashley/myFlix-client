@@ -21,11 +21,11 @@ export const MovieCard = ({ movie, user }) => {
 // prop-types conditions for return MovieCard statements in main-view
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
-    Director: PropTypes.object.isRequired,
-    Description: PropTypes.string.isRequired,
-    Year: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    imagepath: PropTypes.string.isRequired,
+    director: PropTypes.object.isRequired,
+    description: PropTypes.string.isRequired,
+    year: PropTypes.string,
   }).isRequired,
   user: PropTypes.object.isRequired,
 };

@@ -1,9 +1,10 @@
-myFlix-client
+# MyFlix App
 
 Tools used:
+
 - Parcel (using Parcel for my build tool in this project)
 
-How to setup the application: 
+How to setup the application:
 
 - npm install parcel -g
 
@@ -13,7 +14,7 @@ How to run the server:
 
 - parcel src/index.html
 
+Notes:
 
-Notes: 
 - index.html represents the entry point for myFlix
 - Structure tree, index.html -> index.jsx -> index.scss
