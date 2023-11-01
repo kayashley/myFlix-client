@@ -1,20 +1,36 @@
 # MyFlix App
 
-Tools used:
+![image of my app](myflix-app.jpg)
 
-- Parcel (using Parcel for my build tool in this project)
+## Description
 
-How to setup the application:
+MyFlix App presents 12 of my favorite movies I'v enjoyed in my lifetime. Some are iconic and memorable. Users can join or login to discover some of their favorite movies as well, maybe we have some in common!
 
-- npm install parcel -g
+## Getting Started
 
-- npm install
+### Dependencies
 
-How to run the server:
+- parcel (using Parcel for my build tool in this project)
+- react
+- react-bootstrap
+- react-router
+- react-dom
 
-- parcel src/index.html
+### Executing program
 
-Notes:
+- npm run start
+
+## Project included
+
+- MERN (MongoDB, Express, React, and Node.js)
+- SQL (PGAdmin)
+- fetched api (created by me) [https://github.com/kayashley/myFlix3.0.git](here)
+
+## Live Demo
+
+[Live demo link](https://myflix-app-kc.netlify.app/login)
+
+\*Side Notes:
 
 - index.html represents the entry point for myFlix
 - Structure tree, index.html -> index.jsx -> index.scss
