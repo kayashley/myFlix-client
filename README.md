@@ -1,6 +1,6 @@
 # MyFlix App
 
-![image of my app](myflix-app.jpg)
+![image of my app](/img/myflix-app.jpg)
 
 ## Description
 
@@ -24,13 +24,13 @@ MyFlix App presents 12 of my favorite movies I'v enjoyed in my lifetime. Some ar
 
 - MERN (MongoDB, Express, React, and Node.js)
 - SQL (PGAdmin)
-- fetched api (created by me) [https://github.com/kayashley/myFlix3.0.git](here)
+- fetched api (created by me) [API repo](https://github.com/kayashley/myFlix3.0.git)
 
 ## Live Demo
 
 [Live demo link](https://myflix-app-kc.netlify.app/login)
 
-\*Side Notes:
+\*\*Side Notes:
 
 - index.html represents the entry point for myFlix
 - Structure tree, index.html -> index.jsx -> index.scss
