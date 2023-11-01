@@ -145,6 +145,7 @@ export function ProfileView({ movies, user, token, setUser }) {
       {/* users favorite list */}
       <Row className="fav">
         <h4>Favorite Movies</h4>
+        {favoriteMovies.length === 0 && <p>No movies added</p>}
         {favoriteMovies.map((movie) => (
           <Col className="mb-4" key={movie._id} xs={6} md={3}>
             <MovieCard
