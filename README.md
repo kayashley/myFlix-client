@@ -2,6 +2,9 @@
 
 ![image of my app](/img/myflix-app.jpg)
 
+![myflix-app](https://github.com/kayashley/myFlix-client/assets/87038951/22c2daf7-af13-4c75-adb1-e010ff9e57eb)
+
+
 ## Description
 
 MyFlix App presents 12 of my favorite movies I'v enjoyed in my lifetime. Some are iconic and memorable. Users can join or login to discover some of their favorite movies as well, maybe we have some in common!
