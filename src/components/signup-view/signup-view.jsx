@@ -63,7 +63,7 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
-      <Form.Group className="submit">
+      <Form.Group className="">
         <Form.Label>Birthday</Form.Label>
         <Form.Control
           type="date"
@@ -72,7 +72,7 @@ export const SignupView = () => {
           required
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" className="submit">
         Submit
       </Button>
     </Form>
