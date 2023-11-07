@@ -19,14 +19,19 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken);
   const [movies, setMovies] = useState([]);
 
-  const handleFilter = (searchTerm) => {
-    const filterMovies = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    // updates movie state to filtered movie
-    setMovies(filterMovies);
-    console.log("filtered movies:", filterMovies);
+  const [filterMovies, setFilterMovies] = useState([]);
+  const [search, setSearch] = useState("");
+
+  // v2 - filter feature
+  const filteredMovies = (movies, search) => {
+    return movies.filter((movie) => {
+      return movie.title.toLowerCase().includes(search.toLowerCase());
+    });
   };
+
+  useEffect(() => {
+    setFilterMovies(filteredMovies(movies, search));
+  }, [search, movies]);
 
   // fetch movie api
   useEffect(() => {
@@ -132,11 +137,13 @@ export const MainView = () => {
                   <>
                     <Row>
                       <Col>
-                        <SearchForm onSearch={handleFilter} />
+                        <SearchForm
+                          search={search}
+                          handleOnChange={setSearch}
+                        />
                       </Col>
                     </Row>
-
-                    {movies.map((movie) => (
+                    {filterMovies.map((movie) => (
                       <Col className="mb-4" key={movie._id} md={3} xs={6}>
                         <MovieCard movie={movie} user={user} />
                       </Col>
